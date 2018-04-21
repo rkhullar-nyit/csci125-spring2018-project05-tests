@@ -17,7 +17,7 @@ class TestRunner
 
     public static void main(String[] args)
     {
-        Result calculator_result = JUnitCore.runClasses(ExampleTest.class);
+        Result calculator_result = JUnitCore.runClasses(RectangleTest.class);
         Result[] results = new Result[]{calculator_result};
 
         int grade = max;
