@@ -1,3 +1,5 @@
+package tools.mockio;
+
 import org.junit.After;
 import org.junit.Before;
 

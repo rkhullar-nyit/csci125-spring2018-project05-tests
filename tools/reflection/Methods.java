@@ -1,4 +1,4 @@
-package reflect_tools;
+package tools.reflection;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

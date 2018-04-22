@@ -1,4 +1,4 @@
-package reflect_tools;
+package tools.reflection;
 
 import java.util.HashMap;
 
@@ -18,5 +18,23 @@ public class MultiReflector extends Reflector
         {
             return false;
         }
+    }
+
+    @Override
+    void learn()
+    {
+
+    }
+
+    @Override
+    void inspect()
+    {
+
+    }
+
+    @Override
+    void restore()
+    {
+
     }
 }

@@ -1,10 +1,10 @@
-package reflect_tools;
+package tools.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class Reflector
+public abstract class Reflector
 {
     static final String default_nick = "default";
 
@@ -58,5 +58,9 @@ public class Reflector
             return null;
         }
     }
+
+    abstract void learn();
+    abstract void inspect();
+    abstract void restore();
 }
 

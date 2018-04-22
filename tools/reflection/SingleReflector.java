@@ -1,4 +1,4 @@
-package reflect_tools;
+package tools.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -24,23 +24,22 @@ public class SingleReflector extends Reflector
     public Constructor fetch_constructor(Alias alias)
     { return constructors.map.get(alias); }
 
+    public SingleReflector() {}
+
     public SingleReflector(String class_name)
     { init_clazz(class_name); }
 
     public Field load_field(String field_name)
-    { return load_field(clazz.getName(), field_name); }
+    { return clazz != null ? load_field(clazz.getName(), field_name) : null; }
 
     public Method load_method(String method_name, Class...types)
-    { return load_method(clazz.getName(), method_name, types); }
+    { return clazz != null ? load_method(clazz.getName(), method_name, types) : null; }
 
     public Constructor load_constructor(Class...types)
-    { return load_constructor(clazz.getName(), types); }
+    { return clazz != null ? load_constructor(clazz.getName(), types) : null; }
 
     public boolean init_clazz(String name)
-    {
-        clazz = load_class(name);
-        return clazz != null;
-    }
+    { return (clazz = load_class(name)) != null; }
 
     public boolean init_fields(String...names)
     {
@@ -89,10 +88,10 @@ public class SingleReflector extends Reflector
         fields.learn_modifiers();
     }
 
-    public void inspect_fields()
+    public void inspect()
     { fields.inspect(); }
 
-    public void restore_fields()
+    public void restore()
     { fields.restore(); }
 
 }
