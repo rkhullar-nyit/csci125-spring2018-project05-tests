@@ -27,7 +27,7 @@ public class RectangleTest extends RectangleTestBase
 
     private Object new_rectangle(int width, int height) throws Exception
     {
-        Object rectangle = RectangleDefault.newInstance();
+        final Object rectangle = RectangleDefault.newInstance();
         RectangleWidth.set(rectangle, width); RectangleHeight.set(rectangle, height);
         return rectangle;
     }
@@ -38,11 +38,11 @@ public class RectangleTest extends RectangleTestBase
         assertThat(RectangleDefault, is(notNullValue()));
         assertThat(RectangleDefault, hasModifiers(PUBLIC));
 
-        Object dut = RectangleDefault.newInstance();
+        final Object dut = RectangleDefault.newInstance();
         assertThat(dut, is(notNullValue()));
 
-        int actual_width = (int) RectangleWidth.get(dut);
-        int actual_height = (int) RectangleHeight.get(dut);
+        final int actual_width = (int) RectangleWidth.get(dut);
+        final int actual_height = (int) RectangleHeight.get(dut);
 
         assertThat(actual_width, is(equalTo(0)));
         assertThat(actual_height, is(equalTo(0)));
@@ -58,8 +58,8 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            Object dut = RectangleFull.newInstance(input[0], input[1]);
+            final int[] input = test_input[i];
+            final Object dut = RectangleFull.newInstance(input[0], input[1]);
             assertThat(dut, is(notNullValue()));
             assertThat(RectangleWidth.get(dut), is(equalTo(input[0])));
             assertThat(RectangleHeight.get(dut), is(equalTo(input[1])));
@@ -67,7 +67,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_accessor_signatures() throws Exception
+    public void test_accessor_signatures()
     {
         assertThat(RectangleGetWidth, is(notNullValue()));
         assertThat(RectangleGetHeight, is(notNullValue()));
@@ -80,7 +80,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_mutator_signatures() throws Exception
+    public void test_mutator_signatures()
     {
         assertThat(RectangleSetWidth, is(notNullValue()));
         assertThat(RectangleSetHeight, is(notNullValue()));
@@ -105,10 +105,10 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            int expected = expected_output[i];
-            Object dut = new_rectangle(input[0], input[1]);
-            int actual = (int) RectangleGetArea.invoke(dut);
+            final int[] input = test_input[i];
+            final int expected = expected_output[i];
+            final Object dut = new_rectangle(input[0], input[1]);
+            final int actual = (int) RectangleGetArea.invoke(dut);
             assertThat(actual, is(equalTo(expected)));
         }
     }
@@ -126,17 +126,17 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            int expected = expected_output[i];
-            Object dut = new_rectangle(input[0], input[1]);
-            int actual = (int) RectangleGetPerimeter.invoke(dut);
+            final int[] input = test_input[i];
+            final int expected = expected_output[i];
+            final Object dut = new_rectangle(input[0], input[1]);
+            final int actual = (int) RectangleGetPerimeter.invoke(dut);
             assertThat(actual, is(equalTo(expected)));
         }
     }
 
     private String rectangle_to_string(Object object) throws Exception
     {
-        int width = (int) RectangleWidth.get(object), height = (int) RectangleHeight.get(object);
+        final int width = (int) RectangleWidth.get(object), height = (int) RectangleHeight.get(object);
         return String.format("{type: Rectangle, width: %d, height: %d}", width, height);
     }
 
@@ -151,14 +151,14 @@ public class RectangleTest extends RectangleTestBase
         for(int i=0; i<number_of_test_cases; i++)
         {
             int[] input = test_input[i];
-            Object dut = new_rectangle(input[0], input[1]);
-            String actual = (String) RectangleToString.invoke(dut);
+            final Object dut = new_rectangle(input[0], input[1]);
+            final String actual = (String) RectangleToString.invoke(dut);
             assertThat(actual, is(equalTo(rectangle_to_string(dut))));
         }
     }
 
     @Test
-    public void test_equals_signature() throws Exception
+    public void test_equals_signature()
     {
         assertThat(RectangleEquals, is(notNullValue()));
         assertThat(RectangleEquals.getReturnType(), is(equalTo(boolean.class)));
@@ -174,8 +174,8 @@ public class RectangleTest extends RectangleTestBase
         for(int i=0; i<number_of_test_cases; i++)
         {
             int[] input = test_input[i];
-            Object rectangle1 = new_rectangle(input[0], input[1]);
-            Object rectangle2 = new_rectangle(input[2], input[3]);
+            final Object rectangle1 = new_rectangle(input[0], input[1]);
+            final Object rectangle2 = new_rectangle(input[2], input[3]);
             assertTrue((boolean) RectangleEquals.invoke(rectangle1, rectangle2));
             // assertThat(rectangle1, is(equalTo(rectangle2)));
         }
@@ -189,9 +189,9 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            Object rectangle1 = new_rectangle(input[0], input[1]);
-            Object rectangle2 = new_rectangle(input[2], input[3]);
+            final int[] input = test_input[i];
+            final Object rectangle1 = new_rectangle(input[0], input[1]);
+            final Object rectangle2 = new_rectangle(input[2], input[3]);
             assertFalse((boolean) RectangleEquals.invoke(rectangle1, rectangle2));
             // assertThat(rectangle1, is(not(equalTo(rectangle2))));
         }
@@ -205,8 +205,8 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            Object dut = new_rectangle(input[0], input[1]);
+            final int[] input = test_input[i];
+            final Object dut = new_rectangle(input[0], input[1]);
             assertThat(RectangleGetWidth.invoke(dut), is(equalTo(input[0])));
             assertThat(RectangleGetHeight.invoke(dut), is(equalTo(input[1])));
         }
@@ -220,8 +220,8 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i];
-            Object dut = new_rectangle(-1, -1);
+            final int[] input = test_input[i];
+            final Object dut = new_rectangle(-1, -1);
             RectangleSetWidth.invoke(dut, input[0]);
             RectangleSetHeight.invoke(dut, input[1]);
             assertThat(RectangleWidth.get(dut), is(equalTo(input[0])));
@@ -231,7 +231,7 @@ public class RectangleTest extends RectangleTestBase
 
 
     @Test
-    public void test_implements_comparable() throws Exception
+    public void test_implements_comparable()
     {
         assertThat(RectangleCompareTo, is(notNullValue()));
         assertThat(RectangleClass, implementsGenericComparable());
@@ -246,17 +246,17 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            int[] input = test_input[i]; int expected = test_output[i];
-            Object rectangle1 = new_rectangle(input[0], input[1]);
-            Object rectangle2 = new_rectangle(input[2], input[3]);
-            int actual = (int) RectangleCompareTo.invoke(rectangle1, rectangle2);
+            final int[] input = test_input[i]; int expected = test_output[i];
+            final Object rectangle1 = new_rectangle(input[0], input[1]);
+            final Object rectangle2 = new_rectangle(input[2], input[3]);
+            final int actual = (int) RectangleCompareTo.invoke(rectangle1, rectangle2);
             assertThat(Integer.compare(actual, 0), is(equalTo(expected)));
         }
     }
 
     private String build_draw_output(int width, int height, char marker)
     {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         for(int row=0; row<height; row++)
         {
             for (int col=0; col<width; col++)
@@ -278,13 +278,13 @@ public class RectangleTest extends RectangleTestBase
 
         for(int i=0; i<number_of_test_cases; i++)
         {
-            Object[] input = test_input[i];
-            Object dut = new_rectangle((int) input[0], (int) input[1]);
+            final Object[] input = test_input[i];
+            final Object dut = new_rectangle((int) input[0], (int) input[1]);
             mock_io_setup();
             RectangleDraw.invoke(dut, (char) input[2]);
-            String actual = get_mock_output();
+            final String actual = get_mock_output();
             mock_io_tear_down();
-            String expected = build_draw_output((int) input[0], (int) input[1], (char) input[2]);
+            final String expected = build_draw_output((int) input[0], (int) input[1], (char) input[2]);
             assertThat(actual, is(equalTo(expected)));
         }
     }
