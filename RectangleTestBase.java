@@ -14,7 +14,7 @@ public class RectangleTestBase extends ReflectTest
     protected static Method RectangleGetWidth, RectangleSetWidth,
             RectangleGetHeight, RectangleSetHeight,
             RectangleToString, RectangleEquals, RectangleCompareTo,
-            RectangleGetArea, RectangleGetPerimeter;
+            RectangleGetArea, RectangleGetPerimeter, RectangleDraw;
     protected static Constructor RectangleDefault, RectangleFull;
 
     protected ReflectTestAdapter buildReflectAdapter()
@@ -34,8 +34,6 @@ public class RectangleTestBase extends ReflectTest
 
                 single.init_method("getWidth");
                 single.init_method("getHeight");
-                single.init_method("getArea");
-                single.init_method("getPerimeter");
 
                 single.init_method("setWidth", int.class);
                 single.init_method("setHeight", int.class);
@@ -43,6 +41,10 @@ public class RectangleTestBase extends ReflectTest
                 single.init_method("toString");
                 single.init_method("equals", single.fetch_class());
                 single.init_method("compareTo", single.fetch_class());
+
+                single.init_method("getArea");
+                single.init_method("getPerimeter");
+                single.init_method("draw", char.class);
 
                 single.init_constructor();
                 single.init_constructor("full", int.class, int.class);
@@ -66,6 +68,7 @@ public class RectangleTestBase extends ReflectTest
 
                 RectangleGetArea = single.fetch_method(Alias.build("getArea"));
                 RectangleGetPerimeter = single.fetch_method(Alias.build("getPerimeter"));
+                RectangleDraw = single.fetch_method(Alias.build("draw"));
 
                 RectangleEquals = single.fetch_method(Alias.build("equals"));
                 RectangleCompareTo = single.fetch_method(Alias.build("compareTo"));

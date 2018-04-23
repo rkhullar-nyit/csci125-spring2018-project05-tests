@@ -1,6 +1,5 @@
 import org.junit.Test;
 
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
@@ -241,7 +240,7 @@ public class RectangleTest extends RectangleTestBase
     @Test
     public void test_compare_to() throws Exception
     {
-        final int number_of_test_cases = 3;
+        final int number_of_test_cases = 6;
         final int[][] test_input = {{0,0, 0,0}, {1,2, 2,1}, {1,5, 3,4}, {2,3, 4,3}, {3,4, 1,1}, {5,1, 2,2}};
         final int[] test_output = {0, 0, -1, -1, 1, 1};
 
@@ -255,14 +254,39 @@ public class RectangleTest extends RectangleTestBase
         }
     }
 
+    private String build_draw_output(int width, int height, char marker)
+    {
+        StringBuilder builder = new StringBuilder();
+        for(int row=0; row<height; row++)
+        {
+            for (int col=0; col<width; col++)
+                builder.append(marker);
+            builder.append(line_ending);
+        }
+        return builder.toString().trim();
+    }
 
-//    @Test
-//    public void test_default_rectangle()
-//    {
-//        Rectangle dut = new Rectangle();
-//        String y = get_mock_output();
-//        String e = build_output("hello world");
-//        assertEquals(e, y);
-//    }
+    @Test
+    public void test_draw() throws Exception
+    {
+        assertThat(RectangleDraw, is(notNullValue()));
+        assertThat(RectangleDraw.getReturnType(), is(equalTo(void.class)));
+        assertThat(RectangleDraw, hasModifiers(PUBLIC));
+
+        final int number_of_test_cases = 3;
+        final Object[][] test_input = {{0,0, '*'}, {1,1, '+'}, {3,4, '-'}, {1, 5, '$'}};
+
+        for(int i=0; i<number_of_test_cases; i++)
+        {
+            Object[] input = test_input[i];
+            Object dut = new_rectangle((int) input[0], (int) input[1]);
+            mock_io_setup();
+            RectangleDraw.invoke(dut, (char) input[2]);
+            String actual = get_mock_output();
+            mock_io_tear_down();
+            String expected = build_draw_output((int) input[0], (int) input[1], (char) input[2]);
+            assertThat(actual, is(equalTo(expected)));
+        }
+    }
 
 }
