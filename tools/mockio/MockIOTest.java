@@ -11,7 +11,7 @@ import java.io.PrintStream;
 public class MockIOTest
 {
 
-    private static final String line_ending = System.lineSeparator();
+    protected static final String line_ending = System.lineSeparator();
     private PrintStream std_out;
     private InputStream std_in;
     private ByteArrayOutputStream mock_out;
@@ -40,8 +40,7 @@ public class MockIOTest
         return mock_out.toString().trim();
     }
 
-    @Before
-    public void setUp()
+    protected void mock_io_setup()
     {
         std_out = System.out;
         std_in = System.in;
@@ -49,11 +48,19 @@ public class MockIOTest
         System.setOut(new PrintStream(mock_out));
     }
 
-    @After
-    public void tearDown()
+    protected void mock_io_tear_down()
     {
         System.setOut(std_out);
         System.setIn(std_in);
     }
+
+
+    @Before
+    public void setUp()
+    { mock_io_setup(); }
+
+    @After
+    public void tearDown()
+    { mock_io_tear_down(); }
 
 }

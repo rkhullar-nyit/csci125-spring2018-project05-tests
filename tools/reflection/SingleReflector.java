@@ -86,12 +86,19 @@ public class SingleReflector extends Reflector
     {
         fields.learn_access();
         fields.learn_modifiers();
+        methods.learn_access();
     }
 
     public void inspect()
-    { fields.inspect(); }
+    {
+        fields.inspect();
+        methods.inspect();
+    }
 
     public void restore()
-    { fields.restore(); }
+    {
+        fields.restore();
+        methods.restore();
+    }
 
 }

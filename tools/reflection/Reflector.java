@@ -1,5 +1,6 @@
 package tools.reflection;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -62,5 +63,10 @@ public abstract class Reflector
     abstract void learn();
     abstract void inspect();
     abstract void restore();
+
+    public static Class as_array(Class clazz)
+    {
+        return Array.newInstance(clazz, 0).getClass();
+    }
 }
 

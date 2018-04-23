@@ -20,21 +20,12 @@ public class MultiReflector extends Reflector
         }
     }
 
-    @Override
-    void learn()
+    public SingleReflector fetch(String name)
     {
-
+        return map.get(name);
     }
 
-    @Override
-    void inspect()
-    {
-
-    }
-
-    @Override
-    void restore()
-    {
-
-    }
+    void learn() { map.forEach((name, reflector) -> reflector.learn()); }
+    void inspect() { map.forEach((name, reflector) -> reflector.inspect()); }
+    void restore() { map.forEach((name, reflector) -> reflector.restore()); }
 }

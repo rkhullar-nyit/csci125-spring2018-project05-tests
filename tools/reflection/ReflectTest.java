@@ -112,12 +112,12 @@ public abstract class ReflectTest extends MockIOTest
         Collections.addAll(genericInterfaces, clazz.getGenericInterfaces());
         Type target_type = build_generic_comparable_for(clazz);
 
-
         for(Type type: genericInterfaces)
             if(type.equals(target_type))
                 return true;
         return false;
 
+        // TODO: implement equals and/or hash in order to optimize above query
         //return genericInterfaces.contains(target_type);
         //return clazz.isInstance(target_type);
     }
