@@ -13,7 +13,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_fields() throws Exception
+    public void test_rectangle_fields()
     {
         assertThat(RectangleWidth, is(notNullValue()));
         assertThat(RectangleHeight, is(notNullValue()));
@@ -33,7 +33,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_default_constructor() throws Exception
+    public void test_rectangle_default_constructor() throws Exception
     {
         assertThat(RectangleDefault, is(notNullValue()));
         assertThat(RectangleDefault, hasModifiers(PUBLIC));
@@ -49,7 +49,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_full_constructor() throws Exception
+    public void test_rectangle_full_constructor() throws Exception
     {
         assertThat(RectangleFull, is(notNullValue()));
 
@@ -67,7 +67,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_accessor_signatures()
+    public void test_rectangle_accessor_signatures()
     {
         assertThat(RectangleGetWidth, is(notNullValue()));
         assertThat(RectangleGetHeight, is(notNullValue()));
@@ -80,7 +80,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_mutator_signatures()
+    public void test_rectangle_mutator_signatures()
     {
         assertThat(RectangleSetWidth, is(notNullValue()));
         assertThat(RectangleSetHeight, is(notNullValue()));
@@ -93,7 +93,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_get_area() throws Exception
+    public void test_rectangle_get_area() throws Exception
     {
         assertThat(RectangleGetArea, is(notNullValue()));
         assertThat(RectangleGetArea.getReturnType(), is(equalTo(int.class)));
@@ -114,7 +114,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_get_perimeter() throws Exception
+    public void test_rectangle_get_perimeter() throws Exception
     {
         assertThat(RectangleGetPerimeter, is(notNullValue()));
         assertThat(RectangleGetPerimeter.getReturnType(), is(equalTo(int.class)));
@@ -141,7 +141,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_to_string() throws Exception
+    public void test_rectangle_to_string() throws Exception
     {
         assertNotNull(RectangleToString);
 
@@ -158,7 +158,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_equals_signature()
+    public void test_rectangle_equals_signature()
     {
         assertThat(RectangleEquals, is(notNullValue()));
         assertThat(RectangleEquals.getReturnType(), is(equalTo(boolean.class)));
@@ -166,7 +166,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_equals() throws Exception
+    public void test_rectangle_equals() throws Exception
     {
         final int number_of_test_cases = 3;
         final int[][] test_input = {{0,0, 0,0}, {1,1, 1,1}, {3,4, 3,4}};
@@ -182,7 +182,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_not_equals() throws Exception
+    public void test_rectangle_not_equals() throws Exception
     {
         final int number_of_test_cases = 3;
         final int[][] test_input = {{0,0, 0,1}, {1,1, 2,1}, {3,4, 4,3}};
@@ -198,7 +198,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_accessors() throws Exception
+    public void test_rectangle_accessors() throws Exception
     {
         final int number_of_test_cases = 3;
         final int[][] test_input = {{0,0}, {1,1}, {3,4}};
@@ -213,7 +213,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_mutators() throws Exception
+    public void test_rectangle_mutators() throws Exception
     {
         final int number_of_test_cases = 3;
         final int[][] test_input = {{0,0}, {1,1}, {3,4}};
@@ -231,14 +231,14 @@ public class RectangleTest extends RectangleTestBase
 
 
     @Test
-    public void test_implements_comparable()
+    public void test_rectangle_implements_comparable()
     {
         assertThat(RectangleCompareTo, is(notNullValue()));
         assertThat(RectangleClass, implementsGenericComparable());
     }
 
     @Test
-    public void test_compare_to() throws Exception
+    public void test_rectangle_compare_to() throws Exception
     {
         final int number_of_test_cases = 6;
         final int[][] test_input = {{0,0, 0,0}, {1,2, 2,1}, {1,5, 3,4}, {2,3, 4,3}, {3,4, 1,1}, {5,1, 2,2}};
@@ -267,7 +267,7 @@ public class RectangleTest extends RectangleTestBase
     }
 
     @Test
-    public void test_draw() throws Exception
+    public void test_rectangle_draw() throws Exception
     {
         assertThat(RectangleDraw, is(notNullValue()));
         assertThat(RectangleDraw.getReturnType(), is(equalTo(void.class)));

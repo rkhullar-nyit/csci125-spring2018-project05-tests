@@ -66,7 +66,7 @@ public abstract class Reflector
 
     public static Class as_array(Class clazz)
     {
-        return Array.newInstance(clazz, 0).getClass();
+        return clazz != null ? Array.newInstance(clazz, 0).getClass() : null;
     }
 }
 

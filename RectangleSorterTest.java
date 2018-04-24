@@ -95,7 +95,7 @@ public class RectangleSorterTest extends RectangleSorterTestBase
     }
 
     @Test
-    public void test_swap() throws Exception
+    public void test_rectangle_sorter_swap() throws Exception
     {
         final int[][] dimension_array = {{0,0}, {1,1}, {2,2}};
         final Object array = new_rectangle_array(dimension_array);
@@ -112,7 +112,7 @@ public class RectangleSorterTest extends RectangleSorterTestBase
     }
 
     @Test
-    public void test_min() throws Exception
+    public void test_rectangle_sorter_min() throws Exception
     {
         // int[] areas = {12, 2, 5, 4, 10};
         final int[][] dimension_array = {{3,4}, {1,2}, {5,1}, {2,2}, {5,2}};
@@ -137,7 +137,7 @@ public class RectangleSorterTest extends RectangleSorterTestBase
     }
 
     @Test
-    public void test_sort() throws Exception
+    public void test_rectangle_sorter_sort() throws Exception
     {
         final int[][] test_input = {{3,4}, {1,2}, {5,1}, {2,2}, {5,2}};
         final int[][] test_output = {{1,2}, {2,2}, {5,1}, {5,2}, {3,4}};
