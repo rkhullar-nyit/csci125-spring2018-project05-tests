@@ -2,6 +2,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import java.io.PrintStream;
 import java.util.HashMap;
 
 class TestRunner
@@ -40,6 +41,8 @@ class TestRunner
 
     public static void main(String[] args)
     {
+        final PrintStream std_out = System.out;
+
         Result rectangle_result = JUnitCore.runClasses(RectangleTest.class);
         Result rectangle_sorter_result = JUnitCore.runClasses(RectangleSorterTest.class);
         Result[] results = new Result[]{rectangle_result, rectangle_sorter_result};
@@ -60,6 +63,7 @@ class TestRunner
         if(grade < min)
             grade = min;
 
+        System.setOut(std_out);
         System.out.println(grade);
     }
 }
